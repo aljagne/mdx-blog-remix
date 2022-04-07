@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { LoaderFunction, useLoaderData } from "remix";
+import { Link, LoaderFunction, useLoaderData } from "remix";
 import * as firstPost from './first-post.mdx';
+import * as secondPost from './second-post.mdx';
 
 
 function postFromModule(mod: any) {
@@ -12,7 +12,7 @@ function postFromModule(mod: any) {
 
 
 export const loader: LoaderFunction = () => {
-  return [postFromModule(firstPost)];
+  return [postFromModule(firstPost as any),postFromModule(secondPost as any)];
 };
 
 export default function BlogIndex() {
